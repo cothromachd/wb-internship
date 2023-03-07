@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func worker(c <-chan int) {
@@ -15,7 +14,6 @@ func worker(c <-chan int) {
 
 func main() {
 	c := make(chan int)
-	ticker := time.NewTicker(1 * time.Second)
 
 	var n int
 	fmt.Printf("Type number of workers: ")
@@ -29,7 +27,7 @@ func main() {
 		}()
 	}
 
-	for range ticker.C {
+	for {
 		c <- 1
 	}
 }
