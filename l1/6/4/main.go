@@ -2,17 +2,22 @@ package main
 
 import (
 	"fmt"
+	"runtime"
+	"sync"
 )
 
 func main() {
-	
-	set := make(map[string]bool) // New empty set
-	set["Foo"] = true            // Add
-	for k := range set {         // Loop
-		fmt.Println(k)
-	}
-	delete(set, "Foo")    // Delete
-	size := len(set)      // Size
-	exists := set["Foo"]
-	fmt.Println(size, exists)
+	wg := new(sync.WaitGroup)
+
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		fmt.Println("1")
+		fmt.Println("2")
+		runtime.Goexit()
+		fmt.Println("3")
+		fmt.Println("4")
+	}()
+
+	wg.Wait()
 }
