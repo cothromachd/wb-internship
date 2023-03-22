@@ -1,0 +1,17 @@
+go 1.19
+
+use (
+	./l0
+	./l1
+	./l2/develop/dev01
+	./l2/develop/dev02
+	./l2/develop/dev03
+	./l2/develop/dev04
+	./l2/develop/dev05
+	./l2/develop/dev06
+	./l2/develop/dev07
+	./l2/develop/dev08
+	./l2/develop/dev09
+	./l2/develop/dev10
+	./l2/develop/dev11
+)
