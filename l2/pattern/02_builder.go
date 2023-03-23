@@ -128,12 +128,12 @@ func NewFactory(collector Collector) *Factory {
 	return &Factory{Collector: collector}
 }
 
-func (factory Factory) SetCollector(collector Collector) {
+func (factory *Factory) SetCollector(collector Collector) {
 	factory.Collector = collector
 }
 
 // CreateComputer - функция-директор, позволяет задавать последовательности команд стройщику
-func (factory Factory) CreateComputer() Computer {
+func (factory *Factory) CreateComputer() Computer {
 	factory.Collector.SetBrand()
 	factory.Collector.SetCore()
 	factory.Collector.SetGraphicCard()
